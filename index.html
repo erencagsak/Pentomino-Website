@@ -1,57 +1,256 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>PENTOMANO</title>
-		<meta charset="utf-8"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="assets/css/main.css">
-	</head>
-	<body>
-			<header id="header"><div class="inner">
-					<a href="index.html" class="logo">Pentomano</a>
-					</nav>
-				</div>
-			</header><!-- Banner -->
-			<section id="banner"><h1>Pentomano Websitesine Hoşgeldiniz!</h1>
-				<p>Pentomino oyunumuz, 
-					<br>uçak yolculuğunda küçük yaş kitlesinin hem eğlenip hem de bilgi edinerek yolculuk boyunca keyifli vakit geçirmesini sağlamak amacıyla tasarlanmıştır. 
-					<br>Bu oyun, çocukların yaratıcılıklarını ve problem çözme yeteneklerini geliştirmelerine yardımcı olurken, aynı zamanda zihinsel aktivitelerini de destekler.</p>
-			</section><!-- One --><section id="one" class="wrapper"><div class="inner">
-					<div class="flex flex-3">
-						<article><header><h3>Pentomano Oyununu İndir</h3>
-							</header><p>Aşağıdaki linki kullanarak, indirme işlemini gerçekleştirebilirsiniz.</p>
-							<footer>
-								<a href="./APK/Pentomano.apk" download>
-									<i class="fa-solid fa-file"></i> - OYUNU İNDİR
-								</a>
-							</footer>
-						</article>
-						<article>
-							<header><h3>Oyun Hakkında</h3>
-							</header><p>Oyun hakkındaki bilgilere aşağıdaki butona tıklayarak ulaşabilirsiniz.</p>
-							<footer><a href="about.html" class="button special">Oyun Hakkında</a>
-							</footer></article><article><header><h3>Belgeler</h3>
-							</header><p>Oyun yapım aşamasında hangi yollar izlendi, hangi diyagramlar ve belgeler kullanıldığını görüntülemek için aşağıdaki linki kullanabilirsiniz.</p>
-							<footer><a href="document.html" class="button special">Belgeler</a>
-							</footer></article></div>
-			</section>
-			<footer id="footer"><div class="inner">
-				<div class="flex">
-					<ul class="icons">
-						<a href="https://github.com/erencagsak/AR-Pentomino" class="icon fa-github"><span class="label"><a href="https://github.com/erencagsak/AR-Pentomino">            | GitHub - PROJE KAYNAK KODLARINA BURADAN ULAŞABİLİRSİNİZ.</a></span></a>
-						<br>
-						<a href="https://github.com/erencagsak/AR-Pentomino" class="icon fa-trello"><span class="label"><a href="https://trello.com/invite/b/672f69403a09386445879b3c/ATTIb5bd1af4c6224b59c050af58ca63ddbaAB97F3B6/ar-pentomino">            | Trello - TRELLO PANOSUNA BURADAN ULAŞABİLİRSİNİZ.</a></span></a>
-					</ul></div>
-				</div>
-			</footer>
-			<footer id="footer"><div class="inner">
-				<div class="flex">
-					<ul class="icons">	
-						<li><a href="https://linkedin.com/in/erencagsak" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
-						<li><a href="https://github.com/erencagsak" class="icon fa-github"><span class="label">GitHub</span></a></li>
-					</ul></div>
-				</div>
-			</footer>
-			<div class="copyright">Site Eren Taha ÇAĞŞAK tarafından yapıldı.</div>
+<head>
+    <title>PENTOMANO</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"> <!-- AOS CSS Link -->
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script><script src="assets/js/skel.min.js"></script><script src="assets/js/util.js"></script><script src="assets/js/main.js"></script></body></html>
+    <style>
+        /* Genel Sayfa Stili */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        /* Hover Efekti */
+        .button, .logo, .footer a {
+            transition: all 0.3s ease;
+        }
+
+        .button:hover, .logo:hover, .footer a:hover {
+            transform: scale(1.1);
+            color: #FF6347; /* Hover renk değişimi */
+        }
+
+        /* Parallax Efekti */
+        #banner {
+            background: url('images/banner.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            position: relative;
+            transform: translateZ(0);
+            text-align: center;
+            color: #fff;
+        }
+
+        #banner h1 {
+            font-size: 4em;
+            margin-top: 150px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            font-weight: bold;
+        }
+
+        #banner p {
+            font-size: 1.5em;
+            margin-top: 20px;
+            font-weight: lighter;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* One Section */
+        #one {
+            padding: 50px 0;
+            background-color: #fff;
+        }
+
+        #one .inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        #one article {
+            background-color: #fff;
+            padding: 30px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            flex: 0 0 30%;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        #one article:hover {
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+        }
+
+        #one article h3 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        #one article p {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .button.special {
+            background-color: #FF6347;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .button.special:hover {
+            background-color: #D9534F;
+        }
+
+        /* Footer */
+        #footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+        }
+
+        .footer .inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer .icons {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer .icons a {
+            color: #fff;
+            font-size: 1.5em;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer .icons a:hover {
+            color: #FF6347;
+        }
+
+        .footer .copyright {
+            text-align: center;
+            width: 100%;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo">Pentomano</a>
+        </div>
+    </header>
+    
+    <!-- Banner -->
+    <section id="banner">
+        <h1>Pentomano Websitesine Hoşgeldiniz!</h1>
+        <p>Pentomino oyunumuz, küçük yaş kitlesinin eğlenip bilgi edinerek vakit geçirmesini sağlar.</p>
+    </section>
+    
+    <!-- One -->
+    <section id="one" class="wrapper">
+        <div class="inner">
+            <div class="flex flex-3">
+                <article>
+                    <header><h3>Pentomano Oyununu İndir</h3></header>
+                    <p>Aşağıdaki linki kullanarak, indirme işlemini gerçekleştirebilirsiniz.</p>
+                    <footer><a href="./APK/Pentomano.apk" download class="button special">Oyunu İndir</a></footer>
+                </article>
+
+                <article>
+                    <header><h3>Oyun Hakkında</h3></header>
+					<br>
+					<br>
+                    <p>Oyun hakkındaki bilgilere aşağıdaki butona tıklayarak ulaşabilirsiniz.</p>
+                    <footer><a href="about.html" class="button special">Oyun Hakkında</a></footer>
+                </article>
+
+                <article>
+                    <header><h3>Belgeler</h3></header>
+					<br>
+                    <p>Oyun yapım aşamasında hangi yollar izlendiğini görüntülemek için aşağıdaki linki kullanabilirsiniz.</p>
+                    <footer><a href="document.html" class="button special">Belgeler</a></footer>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <div class="flex">
+                <ul class="icons">
+					<h2 style="text-align: center;color: red; font-weight: bold;">PROJE HAKKINDA</h2>
+                    <a href="https://github.com/erencagsak/AR-Pentomino" class="icon fa-github" style="color: white; font-weight: bold;">
+						<span class="label">
+							<a href="https://github.com/erencagsak/AR-Pentomino" style="color: white; font-weight: bold;">GitHub - PROJE KAYNAK KODLARINA BURADAN ULAŞABİLİRSİNİZ.</a>
+						</span>
+					</a>
+					<br>
+					<br>
+					<a href="https://trello.com/invite/b/672f69403a09386445879b3c/ATTIb5bd1af4c6224b59c050af58ca63ddbaAB97F3B6/ar-pentomino" class="icon fa-trello" style="color: white; font-weight: bold;">
+						<span class="label">
+							<a href="https://trello.com/invite/b/672f69403a09386445879b3c/ATTIb5bd1af4c6224b59c050af58ca63ddbaAB97F3B6/ar-pentomino" style="color: white; font-weight: bold;">Trello - PANOSUNA BURADAN ULAŞABİLİRSİNİZ.</a>
+						</span>
+					</a>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <footer id="footer">
+        <div class="inner">
+            <div class="flex">
+                <ul class="icons">    
+                    <li><a href="https://linkedin.com/in/erencagsak" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
+                    <li><a href="https://github.com/erencagsak" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright">Site Eren Taha ÇAĞŞAK tarafından yapıldı.</div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Sayfa Yüklenince Loaded Sınıfını Ekleyin -->
+    <script>
+        window.onload = function() {
+            document.body.classList.add('loaded');
+        };
+    </script>
+
+    <!-- AOS Kütüphanesini Yükleyin -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
